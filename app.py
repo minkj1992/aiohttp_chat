@@ -5,6 +5,7 @@ from aiohttp_session.cookie_storage import EncryptedCookieStorage
 
 from middlewares import db_handler, authorize
 from settings import *
+from routes import routes
 
 
 async def init(loop):
@@ -13,6 +14,12 @@ async def init(loop):
         authorize,
         db_handler,
     ])
+
+
+    # route part
+    for route in routes:
+        app.router.add_route(route[0], route[1], route[2], name=route[3])
+    app.router.add_static('/static', 'static', name='static')
 
 
 if __name__ == '__main__':
