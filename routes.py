@@ -1,3 +1,9 @@
+'''
+To attach routes to app
+
+(http_method, relative_url, handler, route_name)
+'''
+
 from chat.views import ChatList, WebSocket
 from auth.views import Login, SignIn, SignOut
 

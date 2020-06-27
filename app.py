@@ -15,10 +15,10 @@ async def init(loop):
         db_handler,
     ])
 
-
     # route part
     for route in routes:
-        app.router.add_route(route[0], route[1], route[2], name=route[3])
+        method, path, handler, name = route
+        app.router.add_route(method=method, path=path, handler=handler, name=name)
     app.router.add_static('/static', 'static', name='static')
 
 
