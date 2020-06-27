@@ -3,6 +3,7 @@ from envparse import env
 
 if isfile('.env'):
     env.read_envfile('.env')
+
 DEBUG = env.bool('DEBUG', default=False)
 
 SITE_HOST = env.str('HOST')
